@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dhruv Dave – Data Engineer Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c1214;--surface:#131c1f;--line:#223034;--text:#e6eef0;--muted:#8fa3a8;--accent:#2dd4bf;--accent2:#f5a524;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+:root:not([data-theme="light"]){color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.65 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:'Space Grotesk',system-ui,sans-serif;margin:0;line-height:1.15}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:900px;margin:0 auto;padding:0 24px}
+nav{display:flex;gap:22px;justify-content:flex-end;padding:22px 0;font-size:15px}
+nav a{color:var(--muted)}
+nav a:hover{color:var(--text);text-decoration:none}
+.hero{padding:70px 0 60px}
+.hero h1{font-size:clamp(44px,9vw,84px);font-weight:700;letter-spacing:-.03em}
+.hero p.role{font-size:clamp(18px,3vw,24px);color:var(--accent);margin:14px 0 22px;font-family:'Space Grotesk',sans-serif}
+.hero p.sum{max-width:60ch;color:var(--muted);margin:0 0 30px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{padding:11px 20px;border-radius:8px;font-weight:500;border:1px solid var(--line);color:var(--text)}
+.btn.main{background:var(--accent);color:#06211d;border-color:var(--accent)}
+.btn:hover{text-decoration:none;border-color:var(--accent)}
+.stat{display:flex;flex-wrap:wrap;gap:40px;margin-top:48px;padding-top:28px;border-top:1px solid var(--line)}
+.stat b{display:block;font:700 34px 'Space Grotesk',sans-serif;color:var(--accent2)}
+.stat span{color:var(--muted);font-size:14px}
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2{font-size:28px;margin-bottom:26px}
+.tags{display:flex;flex-wrap:wrap;gap:10px}
+.tags span{padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:14px}
+.soft{margin-top:22px;color:var(--muted);font-size:15px}
+.proj{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:24px;margin-bottom:20px}
+.proj h3{font-size:21px;margin-bottom:4px}
+.proj .link{font-size:14px;word-break:break-all}
+.proj ul{margin:14px 0 14px;padding-left:20px;color:var(--muted)}
+.proj li{margin-bottom:6px}
+.proj .tags span{font-size:12.5px;padding:3px 10px;background:transparent}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+ul.plain{list-style:none;padding:0;margin:0}
+ul.plain li{padding:9px 0;border-bottom:1px solid var(--line)}
+ul.plain li small{display:block;color:var(--muted)}
+.edu li{display:flex;justify-content:space-between;gap:16px}
+.edu small{white-space:nowrap}
+footer{padding:50px 0 60px;border-top:1px solid var(--line);color:var(--muted)}
+footer h2{color:var(--text)}
+footer p{margin:6px 0}
+@media(max-width:680px){.two{grid-template-columns:1fr;gap:10px}nav{justify-content:flex-start;flex-wrap:wrap}.edu li{flex-direction:column;gap:0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.bg i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.38;will-change:transform}
+.bg i:nth-child(1){width:440px;height:440px;background:#0fb5a3;top:-80px;left:-120px}
+.bg i:nth-child(2){width:380px;height:380px;background:#d98a0b;top:42%;right:-140px;opacity:.26}
+.bg i:nth-child(3){width:420px;height:420px;background:#0e7490;bottom:-120px;left:22%;opacity:.3}
+#progress{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--accent),var(--accent2));z-index:50}
+nav{position:sticky;top:calc(env(safe-area-inset-top,0px) + 10px);z-index:40;margin-top:10px;padding:12px 22px;border-radius:14px;background:rgba(19,28,31,.45);-webkit-backdrop-filter:blur(16px) saturate(150%);backdrop-filter:blur(16px) saturate(150%);border:1px solid rgba(255,255,255,.09);box-shadow:0 8px 30px rgba(0,0,0,.3)}
+nav a.on{color:var(--accent)}
+.proj,.tags span,.btn,.two ul.plain{-webkit-backdrop-filter:blur(14px) saturate(150%);backdrop-filter:blur(14px) saturate(150%)}
+.proj{background:rgba(19,28,31,.42);border:1px solid rgba(255,255,255,.09);border-left:3px solid var(--accent);box-shadow:0 10px 36px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.07);transition:transform .25s,border-color .25s}
+.proj:hover{transform:translateY(-4px);border-color:rgba(45,212,191,.5)}
+.tags span{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)}
+.proj .tags span{background:rgba(255,255,255,.04)}
+.btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12)}
+.btn.main{background:rgba(45,212,191,.9);border-color:var(--accent)}
+.stat>div{padding:16px 22px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.stat{gap:18px;border-top-color:transparent}
+.reveal{opacity:0;transform:translateY(34px) scale(.98);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.hero h1{background:linear-gradient(100deg,#e6eef0 0%,#2dd4bf 35%,#f5a524 60%,#e6eef0 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:shine 9s linear infinite}
+@keyframes shine{to{background-position:-250% 0}}
+.caret{display:inline-block;width:2px;height:1em;margin-left:4px;vertical-align:-3px;background:var(--accent);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+#projects{display:flex;flex-direction:column}
+#projects h2{order:-2}
+#projects .proj:nth-of-type(2){order:-1}
+.bg i{animation:drift 16s ease-in-out infinite alternate}
+.bg i:nth-child(2){animation-duration:21s;animation-direction:alternate-reverse}
+.bg i:nth-child(3){animation-duration:25s}
+@keyframes drift{from{translate:0 0;scale:1}to{translate:70px 50px;scale:1.18}}
+.proj,.stat>div{position:relative;overflow:hidden}
+.proj::before,.stat>div::before{content:"";position:absolute;inset:0;background:radial-gradient(280px circle at var(--mx,50%) var(--my,50%),rgba(45,212,191,.17),transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none}
+.proj:hover::before,.stat>div:hover::before{opacity:1}
+.tags span{transition:transform .2s,background .2s,border-color .2s}
+.tags span:hover{transform:translateY(-3px) scale(1.06);background:rgba(45,212,191,.14);border-color:rgba(45,212,191,.5)}
+.btn{transition:transform .2s,border-color .2s,box-shadow .2s}
+.btn:hover{box-shadow:0 0 24px rgba(45,212,191,.35)}
+#glow{position:fixed;top:0;left:0;width:340px;height:340px;margin:-170px 0 0 -170px;border-radius:50%;background:radial-gradient(circle,rgba(45,212,191,.13),transparent 65%);pointer-events:none;z-index:-1;opacity:0;transition:opacity .4s;will-change:transform}
+@media(hover:none){#glow{display:none}}
+#net{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.flow{display:flex;flex-wrap:wrap;align-items:center;margin-top:42px}
+.flow span{padding:9px 20px;border-radius:10px;font:500 15px 'Space Grotesk',sans-serif;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);animation:pulse 3.6s ease-in-out infinite}
+.flow span:nth-of-type(2){animation-delay:1.2s}
+.flow span:nth-of-type(3){animation-delay:2.4s}
+@keyframes pulse{0%,70%,100%{box-shadow:0 0 0 rgba(45,212,191,0);border-color:rgba(255,255,255,.12)}30%{box-shadow:0 0 22px rgba(45,212,191,.45);border-color:var(--accent)}}
+.flow i{position:relative;width:64px;height:2px;background:var(--line);overflow:hidden}
+.flow i::after{content:"";position:absolute;top:0;left:-22px;width:22px;height:2px;background:var(--accent);box-shadow:0 0 10px var(--accent);animation:run 1.6s linear infinite}
+@keyframes run{to{left:100%}}
+h2::after{content:"";display:block;height:3px;width:0;margin-top:10px;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .9s .3s}
+h2.in::after{width:64px}
+.btn{transition:translate .15s,border-color .2s,box-shadow .2s}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div id="glow" aria-hidden="true"></div>
+<div class="bg" aria-hidden="true"><i></i><i></i><i></i></div>
+<canvas id="net" aria-hidden="true"></canvas>
+<div class="wrap">
+<nav aria-label="Sections"><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#background">Background</a><a href="#contact">Contact</a></nav>
+
+<header class="hero">
+<h1>Dhruv Dave</h1>
+<p class="role"><span id="type">Data engineering · Python, SQL &amp; ETL</span><span class="caret"></span></p>
+<p class="sum">MCA student in Bengaluru focused on data engineering. I build Python and SQL pipelines that extract, clean, validate and load data into databases, and I use Power BI to turn that data into dashboards people can read.</p>
+<div class="btns">
+<a class="btn main" href="#projects">See my projects</a>
+<a class="btn" href="https://github.com/davedhruv0310-coder" target="_blank" rel="noopener">GitHub</a>
+<a class="btn" href="https://www.linkedin.com/in/dhruv-dave-b77798278" target="_blank" rel="noopener">LinkedIn</a>
+</div>
+<div class="flow" aria-hidden="true"><span>Extract</span><i></i><span>Transform</span><i></i><span>Load</span></div>
+<div class="stat">
+<div><b data-n="541000" data-suf="+">541,000+</b><span>retail transactions analyzed</span></div>
+<div><b data-n="3" data-suf="">3</b><span>data projects on GitHub</span></div>
+<div><b data-n="3" data-suf="">3</b><span>HackerRank badges (SQL, Java, C)</span></div>
+</div>
+</header>
+
+<section id="projects">
+<h2>Projects</h2>
+
+<article class="proj">
+<h3>Sales Management Dashboard</h3>
+<a class="link" href="https://github.com/davedhruv0310-coder/sales_management" target="_blank" rel="noopener">github.com/davedhruv0310-coder/sales_management</a>
+<ul>
+<li>Cleaned and transformed 541,000+ retail transactions with Power Query.</li>
+<li>Built an interactive Power BI dashboard with DAX measures and KPIs for revenue, customer performance and product sales.</li>
+<li>Added filters and visuals to find top-performing products and sales patterns.</li>
+</ul>
+<div class="tags"><span>Power BI</span><span>DAX</span><span>Power Query</span></div>
+</article>
+
+<article class="proj">
+<h3>Student ETL Pipeline</h3>
+<a class="link" href="https://github.com/davedhruv0310-coder/Student_ETL_Project" target="_blank" rel="noopener">github.com/davedhruv0310-coder/Student_ETL_Project</a>
+<ul>
+<li>Built an end-to-end ETL pipeline in Python that loads student records from CSV files into MySQL.</li>
+<li>Added cleaning, transformation and validation steps to keep data consistent before ingestion.</li>
+<li>Split the work into separate extract, transform and load scripts with database connectivity and error handling.</li>
+</ul>
+<div class="tags"><span>Python</span><span>MySQL</span><span>ETL</span></div>
+</article>
+
+<article class="proj">
+<h3>Starbucks Nutrition Dashboard</h3>
+<a class="link" href="https://github.com/davedhruv0310-coder/Starbucks-Nutrition-Dashboard" target="_blank" rel="noopener">github.com/davedhruv0310-coder/Starbucks-Nutrition-Dashboard</a>
+<ul>
+<li>Designed a Power BI dashboard comparing beverages by calories, sugar, caffeine and category.</li>
+<li>Used Power Query for preparation and DAX for KPIs that summarize nutritional values.</li>
+<li>Highlighted high-calorie and high-sugar drinks with interactive charts.</li>
+</ul>
+<div class="tags"><span>Power BI</span><span>DAX</span><span>Power Query</span></div>
+</article>
+</section>
+
+<section id="skills">
+<h2>Skills</h2>
+<div class="tags"><span>Python</span><span>SQL</span><span>MySQL</span><span>ETL Pipelines</span><span>Data Cleaning</span><span>Data Modeling</span><span>Power Query</span><span>Excel</span><span>Power BI</span><span>DAX</span><span>Data Visualization</span></div>
+<p class="soft">Also: communication, teamwork, problem solving, time management, adaptability.</p>
+</section>
+
+<section id="background">
+<div class="two">
+<div>
+<h2>Education</h2>
+<ul class="plain edu">
+<li><span>Master of Computer Applications<small>Dayananda Sagar Institutions</small></span><small>2025 – 2027</small></li>
+<li><span>Bachelor of Computer Applications<small>Marwadi University</small></span><small>2021 – 2024</small></li>
+</ul>
+<h2 style="margin-top:38px">Languages</h2>
+<p style="margin:0;color:var(--muted)">English, Hindi, Gujarati, French (basic)</p>
+</div>
+<div>
+<h2>Certifications</h2>
+<ul class="plain">
+<li>Working in Teams and Interpersonal Skills</li>
+<li>Programming Using Java</li>
+<li>Gen AI for Beginners (Udemy)</li>
+</ul>
+<h2 style="margin-top:38px">Achievements</h2>
+<ul class="plain">
+<li>HackerRank Bronze Badges in SQL, Java and C <small><a href="https://www.hackerrank.com/profile/davedhruv0310" target="_blank" rel="noopener">hackerrank.com/profile/davedhruv0310</a></small></li>
+<li>Prajna Pariksha IT quiz participant, Zerone</li>
+</ul>
+</div>
+</div>
+</section>
+</div>
+
+<footer id="contact">
+<div class="wrap">
+<h2>Get in touch</h2>
+<p>Open to data engineering roles and internships.</p>
+<p><a href="mailto:davedhruv0310@gmail.com">davedhruv0310@gmail.com</a></p>
+<p>Bengaluru, Karnataka</p>
+</div>
+</footer>
+<script>
+(function(){
+var calm=false;
+var bar=document.getElementById('progress'),blobs=document.querySelectorAll('.bg i'),links=document.querySelectorAll('nav a'),secs=[].slice.call(document.querySelectorAll('section'));
+var els=document.querySelectorAll('.proj,section h2,.stat>div,.two>div,.soft,.tags,footer .wrap>*');
+if(!calm&&'IntersectionObserver' in window){
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+els.forEach(function(el,i){el.classList.add('reveal');el.style.transitionDelay=(i%3)*90+'ms';io.observe(el)});
+}
+function onScroll(){
+var h=document.documentElement.scrollHeight-window.innerHeight,y=window.scrollY;
+bar.style.transform='scaleX('+(h>0?y/h:0)+')';
+if(!calm)blobs.forEach(function(b,i){b.style.transform='translateY('+(y*(i+1)*-0.08)+'px)'});
+var cur='';secs.forEach(function(s){if(s.getBoundingClientRect().top<window.innerHeight*.4)cur=s.id});
+if(window.innerHeight+y>=document.documentElement.scrollHeight-4)cur='contact';
+links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+cur)});
+}
+var t=false;window.addEventListener('scroll',function(){if(!t){t=true;requestAnimationFrame(function(){onScroll();t=false})}},{passive:true});
+onScroll();
+if(!calm){
+/* typing role line */
+var ty=document.getElementById('type'),ph=['Data engineering','ETL pipelines','Python & SQL','MySQL data loading','Power BI reporting'],pi=0,ci=0,del=false;
+function tick(){var w=ph[pi];ci+=del?-1:1;ty.textContent=w.slice(0,ci);var d=del?35:75;
+if(!del&&ci===w.length){del=true;d=1300}else if(del&&ci===0){del=false;pi=(pi+1)%ph.length;d=350}
+setTimeout(tick,d)}
+ty.textContent='';setTimeout(tick,500);
+/* count-up stats */
+var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;cio.unobserve(e.target);
+var b=e.target,n=+b.dataset.n,s=b.dataset.suf,t0=null;
+function f(t){if(!t0)t0=t;var p=Math.min((t-t0)/1600,1),v=Math.round(n*(1-Math.pow(1-p,3)));b.textContent=v.toLocaleString('en-US')+s;if(p<1)requestAnimationFrame(f)}
+b.textContent='0'+s;requestAnimationFrame(f)})},{threshold:.6});
+document.querySelectorAll('.stat b').forEach(function(b){cio.observe(b)});
+/* card spotlight */
+document.querySelectorAll('.proj,.stat>div').forEach(function(c){c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')})});
+/* cursor glow */
+var g=document.getElementById('glow'),mx=0,my=0,gx=0,gy=0,on=false;
+window.addEventListener('pointermove',function(e){mx=e.clientX;my=e.clientY;if(!on){on=true;g.style.opacity=1;gx=mx;gy=my}},{passive:true});
+(function loop(){gx+=(mx-gx)*.12;gy+=(my-gy)*.12;g.style.transform='translate('+gx+'px,'+gy+'px)';requestAnimationFrame(loop)})();
+/* 3D tilt */
+document.querySelectorAll('.proj').forEach(function(c){
+c.addEventListener('pointerenter',function(){c.style.transition='transform .12s,border-color .25s';c.style.transitionDelay='0ms'});
+c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform='perspective(900px) rotateX('+(-y*7)+'deg) rotateY('+(x*9)+'deg) translateY(-4px)'});
+c.addEventListener('pointerleave',function(){c.style.transition='';c.style.transform=''})});
+/* magnetic buttons */
+document.querySelectorAll('.btn').forEach(function(b){b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();b.style.translate=((e.clientX-r.left-r.width/2)*.18)+'px '+((e.clientY-r.top-r.height/2)*.3)+'px'});b.addEventListener('pointerleave',function(){b.style.translate=''})});
+/* data-node network */
+var cv=document.getElementById('net'),c2=cv.getContext('2d'),W=0,H=0,P=[],M={x:-999,y:-999};
+function rs(){var d=window.devicePixelRatio||1;W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;c2.setTransform(d,0,0,d,0,0);var n=Math.min(80,Math.floor(W*H/16000));P=[];for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35})}
+rs();window.addEventListener('resize',rs);
+window.addEventListener('pointermove',function(e){M.x=e.clientX;M.y=e.clientY},{passive:true});
+(function draw(){c2.clearRect(0,0,W,H);for(var i=0;i<P.length;i++){var a=P[i];a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;
+c2.fillStyle='rgba(45,212,191,.7)';c2.beginPath();c2.arc(a.x,a.y,1.6,0,6.283);c2.fill();
+for(var j=i+1;j<P.length;j++){var b=P[j],dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy;if(d2<14400){c2.strokeStyle='rgba(45,212,191,'+(.22*(1-d2/14400))+')';c2.beginPath();c2.moveTo(a.x,a.y);c2.lineTo(b.x,b.y);c2.stroke()}}
+var qx=a.x-M.x,qy=a.y-M.y,md=qx*qx+qy*qy;if(md<28900){c2.strokeStyle='rgba(245,165,36,'+(.5*(1-md/28900))+')';c2.beginPath();c2.moveTo(a.x,a.y);c2.lineTo(M.x,M.y);c2.stroke()}}
+requestAnimationFrame(draw)})();
+}
+})();
+</script>
+</body>
+</html>
